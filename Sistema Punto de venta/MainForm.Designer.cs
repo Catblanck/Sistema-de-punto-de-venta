@@ -49,6 +49,11 @@ namespace Sistema_Punto_de_venta
 			this.lblFecha = new System.Windows.Forms.Label();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.button1 = new System.Windows.Forms.Button();
+			this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Descrpción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -113,6 +118,7 @@ namespace Sistema_Punto_de_venta
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(250, 32);
 			this.textBox2.TabIndex = 5;
+			this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox2KeyDown);
 			// 
 			// textBox3
 			// 
@@ -127,12 +133,19 @@ namespace Sistema_Punto_de_venta
 			// dataGridView2
 			// 
 			this.dataGridView2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Location = new System.Drawing.Point(9, 96);
+			this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+									this.Clave,
+									this.Descrpción,
+									this.Cantidad,
+									this.Precio,
+									this.Importe});
+			this.dataGridView2.Location = new System.Drawing.Point(30, 88);
 			this.dataGridView2.Name = "dataGridView2";
 			this.dataGridView2.RowTemplate.Height = 24;
 			this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.dataGridView2.Size = new System.Drawing.Size(959, 375);
+			this.dataGridView2.Size = new System.Drawing.Size(945, 375);
 			this.dataGridView2.TabIndex = 8;
 			// 
 			// button2
@@ -145,6 +158,7 @@ namespace Sistema_Punto_de_venta
 			this.button2.TabIndex = 9;
 			this.button2.Text = "Guardar";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
 			// lblFecha
 			// 
@@ -171,6 +185,31 @@ namespace Sistema_Punto_de_venta
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
+			// Clave
+			// 
+			this.Clave.HeaderText = "Clave";
+			this.Clave.Name = "Clave";
+			// 
+			// Descrpción
+			// 
+			this.Descrpción.HeaderText = "Descrpición";
+			this.Descrpción.Name = "Descrpción";
+			// 
+			// Cantidad
+			// 
+			this.Cantidad.HeaderText = "Cantidad";
+			this.Cantidad.Name = "Cantidad";
+			// 
+			// Precio
+			// 
+			this.Precio.HeaderText = "Precio";
+			this.Precio.Name = "Precio";
+			// 
+			// Importe
+			// 
+			this.Importe.HeaderText = "Importe";
+			this.Importe.Name = "Importe";
+			// 
 			// MainForm
 			// 
 			this.ClientSize = new System.Drawing.Size(978, 543);
@@ -191,6 +230,11 @@ namespace Sistema_Punto_de_venta
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Descrpción;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Clave;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Label lblFecha;
