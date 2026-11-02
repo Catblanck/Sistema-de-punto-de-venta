@@ -35,8 +35,6 @@ CREATE TABLE DETALLES_VENTA (
 );
 
 
-
-
 INSERT INTO EMPLEADOS (Nombre) VALUES 
 ('Ana Martinez');
 
