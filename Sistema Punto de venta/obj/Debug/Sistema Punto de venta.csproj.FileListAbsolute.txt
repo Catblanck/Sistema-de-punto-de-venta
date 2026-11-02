@@ -1,0 +1,7 @@
+C:\Users\Miguel Rico\Documents\SharpDevelop Projects\Sistema Punto de venta\Sistema Punto de venta\obj\Debug\Sistema Punto de venta.csprojResolveAssemblyReference.cache
+C:\Users\Miguel Rico\Documents\SharpDevelop Projects\Sistema Punto de venta\Sistema Punto de venta\obj\Debug\Sistema_Punto_de_venta.MainForm.resources
+C:\Users\Miguel Rico\Documents\SharpDevelop Projects\Sistema Punto de venta\Sistema Punto de venta\obj\Debug\Sistema Punto de venta.csproj.GenerateResource.Cache
+C:\Users\Miguel Rico\Documents\SharpDevelop Projects\Sistema Punto de venta\Sistema Punto de venta\bin\Debug\Sistema Punto de venta.exe
+C:\Users\Miguel Rico\Documents\SharpDevelop Projects\Sistema Punto de venta\Sistema Punto de venta\bin\Debug\Sistema Punto de venta.pdb
+C:\Users\Miguel Rico\Documents\SharpDevelop Projects\Sistema Punto de venta\Sistema Punto de venta\obj\Debug\Sistema Punto de venta.exe
+C:\Users\Miguel Rico\Documents\SharpDevelop Projects\Sistema Punto de venta\Sistema Punto de venta\obj\Debug\Sistema Punto de venta.pdb
