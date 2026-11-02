@@ -37,23 +37,29 @@ namespace Sistema_Punto_de_venta
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
-			this.button2 = new System.Windows.Forms.Button();
-			this.lblFecha = new System.Windows.Forms.Label();
-			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.button1 = new System.Windows.Forms.Button();
 			this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Descrpción = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.button2 = new System.Windows.Forms.Button();
+			this.lblFecha = new System.Windows.Forms.Label();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.lblSubtotal = new System.Windows.Forms.Label();
+			this.lblIva = new System.Windows.Forms.Label();
+			this.lblTotal = new System.Windows.Forms.Label();
+			this.cmbEmpleados = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -61,7 +67,7 @@ namespace Sistema_Punto_de_venta
 			// 
 			this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(30, 47);
+			this.textBox1.Location = new System.Drawing.Point(53, 48);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(72, 35);
@@ -73,7 +79,7 @@ namespace Sistema_Punto_de_venta
 			// 
 			this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label6.Font = new System.Drawing.Font("Segoe UI Black", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(30, 21);
+			this.label6.Location = new System.Drawing.Point(53, 22);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(100, 23);
 			this.label6.TabIndex = 1;
@@ -83,7 +89,7 @@ namespace Sistema_Punto_de_venta
 			// 
 			this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(165, 21);
+			this.label7.Location = new System.Drawing.Point(188, 22);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(135, 23);
 			this.label7.TabIndex = 2;
@@ -93,7 +99,7 @@ namespace Sistema_Punto_de_venta
 			// 
 			this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(571, 9);
+			this.label8.Location = new System.Drawing.Point(594, 10);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(71, 23);
 			this.label8.TabIndex = 3;
@@ -103,7 +109,7 @@ namespace Sistema_Punto_de_venta
 			// 
 			this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(571, 50);
+			this.label9.Location = new System.Drawing.Point(594, 51);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(100, 23);
 			this.label9.TabIndex = 4;
@@ -113,22 +119,12 @@ namespace Sistema_Punto_de_venta
 			// 
 			this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox2.Location = new System.Drawing.Point(165, 50);
+			this.textBox2.Location = new System.Drawing.Point(188, 51);
 			this.textBox2.Multiline = true;
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(250, 32);
 			this.textBox2.TabIndex = 5;
 			this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox2KeyDown);
-			// 
-			// textBox3
-			// 
-			this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox3.Location = new System.Drawing.Point(650, 47);
-			this.textBox3.Multiline = true;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(236, 32);
-			this.textBox3.TabIndex = 6;
 			// 
 			// dataGridView2
 			// 
@@ -141,49 +137,12 @@ namespace Sistema_Punto_de_venta
 									this.Cantidad,
 									this.Precio,
 									this.Importe});
-			this.dataGridView2.Location = new System.Drawing.Point(30, 88);
+			this.dataGridView2.Location = new System.Drawing.Point(42, 89);
 			this.dataGridView2.Name = "dataGridView2";
 			this.dataGridView2.RowTemplate.Height = 24;
 			this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.dataGridView2.Size = new System.Drawing.Size(945, 375);
+			this.dataGridView2.Size = new System.Drawing.Size(945, 335);
 			this.dataGridView2.TabIndex = 8;
-			// 
-			// button2
-			// 
-			this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(427, 491);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(110, 40);
-			this.button2.TabIndex = 9;
-			this.button2.Text = "Guardar";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.Button2Click);
-			// 
-			// lblFecha
-			// 
-			this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.lblFecha.Location = new System.Drawing.Point(648, 10);
-			this.lblFecha.Name = "lblFecha";
-			this.lblFecha.Size = new System.Drawing.Size(100, 23);
-			this.lblFecha.TabIndex = 10;
-			this.lblFecha.Text = "label1";
-			// 
-			// timer1
-			// 
-			this.timer1.Enabled = true;
-			this.timer1.Interval = 1000;
-			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(390, 12);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(134, 23);
-			this.button1.TabIndex = 11;
-			this.button1.Text = "Probar Conexión";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// Clave
 			// 
@@ -210,37 +169,145 @@ namespace Sistema_Punto_de_venta
 			this.Importe.HeaderText = "Importe";
 			this.Importe.Name = "Importe";
 			// 
+			// button2
+			// 
+			this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.button2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.Location = new System.Drawing.Point(450, 492);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(110, 40);
+			this.button2.TabIndex = 9;
+			this.button2.Text = "Guardar";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
+			// 
+			// lblFecha
+			// 
+			this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lblFecha.Location = new System.Drawing.Point(671, 11);
+			this.lblFecha.Name = "lblFecha";
+			this.lblFecha.Size = new System.Drawing.Size(100, 23);
+			this.lblFecha.TabIndex = 10;
+			this.lblFecha.Text = "label1";
+			// 
+			// timer1
+			// 
+			this.timer1.Enabled = true;
+			this.timer1.Interval = 1000;
+			this.timer1.Tick += new System.EventHandler(this.Timer1Tick);
+			// 
+			// label1
+			// 
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(756, 427);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(79, 23);
+			this.label1.TabIndex = 11;
+			this.label1.Text = "Subtotal:";
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(789, 450);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(35, 23);
+			this.label2.TabIndex = 12;
+			this.label2.Text = "IVA:";
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(781, 473);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(43, 23);
+			this.label3.TabIndex = 13;
+			this.label3.Text = "Tota:";
+			// 
+			// lblSubtotal
+			// 
+			this.lblSubtotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lblSubtotal.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblSubtotal.Location = new System.Drawing.Point(841, 427);
+			this.lblSubtotal.Name = "lblSubtotal";
+			this.lblSubtotal.Size = new System.Drawing.Size(100, 23);
+			this.lblSubtotal.TabIndex = 14;
+			this.lblSubtotal.Text = "0.00";
+			// 
+			// lblIva
+			// 
+			this.lblIva.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lblIva.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblIva.Location = new System.Drawing.Point(841, 451);
+			this.lblIva.Name = "lblIva";
+			this.lblIva.Size = new System.Drawing.Size(100, 23);
+			this.lblIva.TabIndex = 15;
+			this.lblIva.Text = "0.00";
+			// 
+			// lblTotal
+			// 
+			this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTotal.Location = new System.Drawing.Point(841, 474);
+			this.lblTotal.Name = "lblTotal";
+			this.lblTotal.Size = new System.Drawing.Size(100, 23);
+			this.lblTotal.TabIndex = 16;
+			this.lblTotal.Text = "0.00";
+			// 
+			// cmbEmpleados
+			// 
+			this.cmbEmpleados.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.cmbEmpleados.FormattingEnabled = true;
+			this.cmbEmpleados.Location = new System.Drawing.Point(671, 50);
+			this.cmbEmpleados.Name = "cmbEmpleados";
+			this.cmbEmpleados.Size = new System.Drawing.Size(164, 24);
+			this.cmbEmpleados.TabIndex = 17;
+			// 
 			// MainForm
 			// 
-			this.ClientSize = new System.Drawing.Size(978, 543);
-			this.Controls.Add(this.button1);
+			this.ClientSize = new System.Drawing.Size(1025, 544);
+			this.Controls.Add(this.cmbEmpleados);
+			this.Controls.Add(this.lblTotal);
+			this.Controls.Add(this.lblIva);
+			this.Controls.Add(this.lblSubtotal);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.lblFecha);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.dataGridView2);
-			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.textBox1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
+			this.Text = "Sistema punto de venta";
 			this.Load += new System.EventHandler(this.MainFormLoad);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ComboBox cmbEmpleados;
+		private System.Windows.Forms.Label lblTotal;
+		private System.Windows.Forms.Label lblIva;
+		private System.Windows.Forms.Label lblSubtotal;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Descrpción;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Clave;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Label lblFecha;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.DataGridView dataGridView2;
-		private System.Windows.Forms.TextBox textBox3;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;

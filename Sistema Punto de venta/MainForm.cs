@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace Sistema_Punto_de_venta
@@ -12,15 +13,16 @@ namespace Sistema_Punto_de_venta
         {
             InitializeComponent();
         }
-
-        void Timer1Tick(object sender, EventArgs e)
-        {
-            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");        
-        }
         
         void MainFormLoad(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            CargarEmpleados();
+        }
+
+        void Timer1Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");        
         }
         
         void Button1Click(object sender, EventArgs e)
@@ -55,6 +57,7 @@ namespace Sistema_Punto_de_venta
                 {
                     BuscarYAgregarProducto(codigo);
                     textBox2.Clear();
+                    textBox1.Text = "1";
                 }
             }
         }
@@ -103,6 +106,7 @@ namespace Sistema_Punto_de_venta
                                         {
                                             row.Cells[2].Value = nuevaCantidad;
                                             row.Cells[4].Value = precio * nuevaCantidad;
+                                            CalcularTotales();
                                         }
                                         else
                                         {
@@ -120,6 +124,7 @@ namespace Sistema_Punto_de_venta
                                     {
                                         decimal importe = precio * cantidadAgregar;
                                         dataGridView2.Rows.Add(clave, descripcion, cantidadAgregar, precio, importe);
+                                        CalcularTotales();
                                     }
                                     else
                                     {
@@ -141,6 +146,56 @@ namespace Sistema_Punto_de_venta
             }
         }
         
+      
+		private void CalcularTotales()
+		{
+		    decimal subtotal = 0;
+		    foreach (DataGridViewRow row in dataGridView2.Rows)
+		    {
+		        if (row.Cells[4].Value != null)
+		        {
+		            subtotal += Convert.ToDecimal(row.Cells[4].Value);
+		        }
+		    }
+		
+		    decimal iva = subtotal * 0.16m; 
+		    decimal total = subtotal + iva;
+		    
+		    lblSubtotal.Text = subtotal.ToString("C2");
+		    lblIva.Text = iva.ToString("C2");
+		    lblTotal.Text = total.ToString("C2");
+		}
+		
+		private void CargarEmpleados()
+		{
+		    BaseDatos db = new BaseDatos();
+		    string query = "SELECT IdEmpleado, Nombre FROM EMPLEADOS";
+		
+		    try
+		    {
+		        using (MySqlConnection conexion = db.ObtenerConexion())
+		        {
+		            conexion.Open();
+		            using (MySqlCommand cmd = new MySqlCommand(query, conexion))
+		            {
+		                using (MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd))
+		                {
+		                    DataTable dtEmpleados = new DataTable();
+		                    adaptador.Fill(dtEmpleados);
+		
+		                    cmbEmpleados.DataSource = dtEmpleados;
+		                    cmbEmpleados.DisplayMember = "Nombre";     
+		                    cmbEmpleados.ValueMember = "IdEmpleado"; 
+		                }
+		            }
+		        }
+		    }
+		    catch (Exception ex)
+		    {
+		        MessageBox.Show("Error al cargar empleados: " + ex.Message);
+		    }
+		}		
+      
         void Button2Click(object sender, EventArgs e)
         {
             if (dataGridView2.Rows.Count == 0 || (dataGridView2.Rows.Count == 1 && dataGridView2.Rows[0].IsNewRow))
@@ -170,7 +225,7 @@ namespace Sistema_Punto_de_venta
 
                 using (MySqlCommand cmdVenta = new MySqlCommand(queryVenta, conexion, transaccion))
                 {
-                    cmdVenta.Parameters.AddWithValue("@idEmpleado", 1);
+                    cmdVenta.Parameters.AddWithValue("@idEmpleado", Convert.ToInt32(cmbEmpleados.SelectedValue));
                     cmdVenta.Parameters.AddWithValue("@subtotal", subtotal);
                     cmdVenta.Parameters.AddWithValue("@iva", iva);
                     cmdVenta.Parameters.AddWithValue("@total", total);
@@ -207,8 +262,9 @@ namespace Sistema_Punto_de_venta
                 }
 
                 transaccion.Commit();
-                MessageBox.Show("¡Venta registrada con éxito y stock actualizado!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("¡Venta registrada con éxito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dataGridView2.Rows.Clear();
+                CalcularTotales();
             }
             catch (Exception ex)
             {
